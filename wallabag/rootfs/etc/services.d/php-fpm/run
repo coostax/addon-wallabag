@@ -1,0 +1,20 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Firefly III
+# Runs the PHP-FPM daemon
+# ==============================================================================
+
+
+
+export LOG_CHANNEL=stdout
+export APP_ENV=local
+
+if bashio::config.equals 'log_level' 'debug' \
+    || bashio::config.equals 'log_level' 'trace' ;then
+    export APP_DEBUG=true
+    export APP_LOG_LEVEL=debug
+fi
+
+bashio::log.info "Starting PHP-FPM..."
+
+exec php-fpm8.0 --nodaemonize

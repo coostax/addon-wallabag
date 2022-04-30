@@ -1,0 +1,24 @@
+build_from:
+  armv7: "ghcr.io/home-assistant/armv7-base-debian:buster"
+  armhf: "ghcr.io/home-assistant/armhf-base-debian:buster"
+  aarch64: "ghcr.io/home-assistant/aarch64-base-debian:buster"
+  amd64: "ghcr.io/home-assistant/amd64-base-debian:buster"
+  i386: "ghcr.io/home-assistant/i386-base-debian:buster"
+args:
+  BASHIO_VERSION: 0.14.3
+  TEMPIO_VERSION: 2021.09.0
+  S6_OVERLAY_VERSION: 2.1.0.2
+  NODE_VERSION: "14"
+  WALLABAG_VERSION: 2.4.3
+labels:
+  io.hass.name: "Wallabag"
+  io.hass.description: "A web application allowing you to save web pages for later reading"
+  io.hass.arch: "{arch}"
+  io.hass.type: "addon"
+  org.opencontainers.image.title: "Wallabag"
+  org.opencontainers.image.description: "A web application allowing you to save web pages for later reading"
+  org.opencontainers.image.vendor: "Home Assistant Add-ons"
+  org.opencontainers.image.source: "https://github.com/coostax/addon-wallabag"
+  org.opencontainers.image.authors: "Paulo Costa"
+  org.opencontainers.image.licenses: "MIT"
+  org.opencontainers.image.documentation: "https://github.com/coostax/addon-wallabag/blob/main/README.md"
