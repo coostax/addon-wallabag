@@ -12,7 +12,7 @@ To install this add-on do the following steps:
 
 1. On supervisor -> add-on go to the options and select Repositories.
 1. Add the URL for this repo (https://github.com/coostax/addon-wallabag.git)
-to the add text box and click on ADD.
+   to the add text box and click on ADD.
 1. Search for the "Wallabag" add-on in the add-on store and install it.
 1. Start the "Wallabag" add-on.
 1. Check the logs of the "Wallabag" add-on to see if everything went well.
