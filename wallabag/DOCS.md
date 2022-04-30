@@ -1,6 +1,6 @@
 # Home Assistant Add-on: Wallabag
 
-Wallabag is a web application allowing you to save web pages for later reading. 
+Wallabag is a web application allowing you to save web pages for later reading.
 Click, save and read it when you want. It extracts content so that you won't be distracted by pop-ups and cie.
 
 Further information can be found at [Wallabag].
@@ -10,7 +10,7 @@ Further information can be found at [Wallabag].
 To install this add-on do the following steps:
 
 1. On supervisor -> add-on go to the options and select Repositories.
-1. Add the URL for this repo (https://github.com/coostax/addon-wallabag.git) to the add text box and click on ADD. 
+1. Add the URL for this repo (https://github.com/coostax/addon-wallabag.git) to the add text box and click on ADD.
 1. Search for the "Wallabag" add-on in the add-on store and install it.
 1. Start the "Wallabag" add-on.
 1. Check the logs of the "Wallabag" add-on to see if everything went well.
@@ -41,7 +41,7 @@ dealing with an unknown issue. Possible values are:
 - `debug`: Shows detailed debug information.
 - `info`: Normal (usually) interesting events.
 - `warning`: Exceptional occurrences that are not errors.
-- `error`:  Runtime errors that do not require immediate action.
+- `error`: Runtime errors that do not require immediate action.
 - `fatal`: Something went terribly wrong. Add-on becomes unusable.
 
 Please note that each level automatically includes log messages from a
@@ -130,12 +130,12 @@ functionality. The format of the log is based on
 [Keep a Changelog][keepchangelog].
 
 Releases are based on [Semantic Versioning][semver], and use the format
-of ``MAJOR.MINOR.PATCH``. In a nutshell, the version will be incremented
+of `MAJOR.MINOR.PATCH`. In a nutshell, the version will be incremented
 based on the following:
 
-- ``MAJOR``: Incompatible or major changes.
-- ``MINOR``: Backwards-compatible new features and enhancements.
-- ``PATCH``: Backwards-compatible bugfixes and package updates.
+- `MAJOR`: Incompatible or major changes.
+- `MINOR`: Backwards-compatible new features and enhancements.
+- `PATCH`: Backwards-compatible bugfixes and package updates.
 
 ## Support
 
@@ -183,9 +183,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[Wallabag]: https://wallabag.org/
-[Wallabag-user-docs]: https://doc.wallabag.org/en/user/configuration/user_information.html
-
+[wallabag]: https://wallabag.org/
+[wallabag-user-docs]: https://doc.wallabag.org/en/user/configuration/user_information.html
 [contributors]: https://github.com/coostax/addon-wallabag/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord]: https://discord.me/hassioaddons

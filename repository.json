@@ -1,5 +1,5 @@
 {
-    "name": "Wallabag homeassistant add-on",
-    "url": "https://github.com/coostax/addon-wallabag",
-    "maintainer": "Paulo Costa <coostax@gmail.com>"
+  "name": "Wallabag homeassistant add-on",
+  "url": "https://github.com/coostax/addon-wallabag",
+  "maintainer": "Paulo Costa <coostax@gmail.com>"
 }

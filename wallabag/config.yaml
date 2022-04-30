@@ -4,7 +4,7 @@ slug: wallabag
 description: A web application allowing you to save web pages for later reading
 url: "https://github.com/coostax/addon-wallabag"
 webui: "[PROTO:ssl]://[HOST]:[PORT:80]"
-services: 
+services:
   - mysql:want
 startup: "application"
 arch:
@@ -16,7 +16,7 @@ arch:
 boot: "auto"
 hassio_api: true
 hassio_role: default
-map: 
+map:
   - ssl
 ports:
   80/tcp: 8000

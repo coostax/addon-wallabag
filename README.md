@@ -17,7 +17,7 @@ Wallabag add-on for home assistant - A web application allowing you to save web 
 
 ## About
 
-Wallabag is a web application allowing you to save web pages for later reading. 
+Wallabag is a web application allowing you to save web pages for later reading.
 Click, save and read it when you want. It extracts content so that you won't be distracted by pop-ups and cie.
 
 Further information can be found at [Wallabag].
@@ -33,7 +33,7 @@ Further information can be found at [Wallabag].
 [coostax]: https://github.com/coostax
 [contributors]: https://github.com/coostax/addon-wallabag/graphs/contributors
 [docs]: https://github.com/coostax/addon-wallabag/blob/master/wallabag/DOCS.md
-[Wallabag]: https://wallabag.org/
+[wallabag]: https://wallabag.org/
 [home-assistant]: https://home-assistant.io
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [issue]: https://github.com/coostax/addon-wallabag/issues
