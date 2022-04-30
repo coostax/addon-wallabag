@@ -1,7 +1,8 @@
 # Home Assistant Add-on: Wallabag
 
 Wallabag is a web application allowing you to save web pages for later reading.
-Click, save and read it when you want. It extracts content so that you won't be distracted by pop-ups and cie.
+Click, save and read it when you want. It extracts content so that you
+won't be distracted by pop-ups and cie.
 
 Further information can be found at [Wallabag].
 
@@ -10,7 +11,8 @@ Further information can be found at [Wallabag].
 To install this add-on do the following steps:
 
 1. On supervisor -> add-on go to the options and select Repositories.
-1. Add the URL for this repo (https://github.com/coostax/addon-wallabag.git) to the add text box and click on ADD.
+1. Add the URL for this repo (https://github.com/coostax/addon-wallabag.git)
+to the add text box and click on ADD.
 1. Search for the "Wallabag" add-on in the add-on store and install it.
 1. Start the "Wallabag" add-on.
 1. Check the logs of the "Wallabag" add-on to see if everything went well.
@@ -90,7 +92,8 @@ server is listening on.
 
 ### Option: `token_secret`
 
-A secret key that's used to generate certain security-related tokens. You should set this to prevent using the default
+A secret key that's used to generate certain security-related tokens.
+You should set this to prevent using the default
 
 ### Option: `app_url`
 
@@ -195,3 +198,4 @@ SOFTWARE.
 [reddit]: https://reddit.com/r/homeassistant
 [releases]: https://github.com/coostax/addon-wallabag/releases
 [semver]: http://semver.org/spec/v2.0.0.htm
+[this-repo]: https://github.com/coostax/addon-wallabag.git

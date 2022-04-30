@@ -13,7 +13,8 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
-Wallabag add-on for home assistant - A web application allowing you to save web pages for later reading
+Wallabag add-on for home assistant - 
+A web application allowing you to save web pages for later reading
 
 ## About
 
