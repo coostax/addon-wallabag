@@ -1,3 +1,4 @@
+---
 parameters:
     database_driver: ${DATABASE_DRIVER}
     database_host: ${DATABASE_HOST}
@@ -13,15 +14,15 @@ parameters:
     domain_name: ${DOMAIN_NAME}
     server_name: ${SERVER_NAME}
 
-    mailer_transport:  smtp
-    mailer_user:       null
-    mailer_password:   null
-    mailer_host:       127.0.0.1
-    mailer_port:       25
+    mailer_transport: smtp
+    mailer_user: null
+    mailer_password: null
+    mailer_host: 127.0.0.1
+    mailer_port: 25
     mailer_encryption: null
-    mailer_auth_mode:  null
+    mailer_auth_mode: null
 
-    locale:            ${APP_LOCALE}
+    locale: ${APP_LOCALE}
 
     # A secret key that's used to generate certain security-related tokens
     secret: ${TOKEN_SECRET}
