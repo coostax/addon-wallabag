@@ -1,60 +1,60 @@
 ---
 parameters:
-    database_driver: ${DATABASE_DRIVER}
-    database_host: ${DATABASE_HOST}
-    database_port: ${DATABASE_PORT}
-    database_name: ${DATABASE_NAME}
-    database_user: ${DATABASE_USER}
-    database_password: ${DATABASE_PASSWORD}
-    database_path: ${DATABASE_PATH}
-    database_table_prefix: wallabag_
-    database_socket: null
-    database_charset: utf8
+  database_driver: ${DATABASE_DRIVER}
+  database_host: ${DATABASE_HOST}
+  database_port: ${DATABASE_PORT}
+  database_name: ${DATABASE_NAME}
+  database_user: ${DATABASE_USER}
+  database_password: ${DATABASE_PASSWORD}
+  database_path: ${DATABASE_PATH}
+  database_table_prefix: wallabag_
+  database_socket: null
+  database_charset: utf8
 
-    domain_name: ${DOMAIN_NAME}
-    server_name: ${SERVER_NAME}
+  domain_name: ${DOMAIN_NAME}
+  server_name: ${SERVER_NAME}
 
-    mailer_transport: smtp
-    mailer_user: null
-    mailer_password: null
-    mailer_host: 127.0.0.1
-    mailer_port: 25
-    mailer_encryption: null
-    mailer_auth_mode: null
+  mailer_transport: smtp
+  mailer_user: null
+  mailer_password: null
+  mailer_host: 127.0.0.1
+  mailer_port: 25
+  mailer_encryption: null
+  mailer_auth_mode: null
 
-    locale: ${APP_LOCALE}
+  locale: ${APP_LOCALE}
 
-    # A secret key that's used to generate certain security-related tokens
-    secret: ${TOKEN_SECRET}
+  # A secret key that's used to generate certain security-related tokens
+  secret: ${TOKEN_SECRET}
 
-    # two factor stuff
-    twofactor_auth: $TWOFACTOR_AUTH
-    twofactor_sender: ${TWOFACTOR_SENDER}
+  # two factor stuff
+  twofactor_auth: $TWOFACTOR_AUTH
+  twofactor_sender: ${TWOFACTOR_SENDER}
 
-    # fosuser stuff
-    fosuser_registration: true
-    fosuser_confirmation: true
+  # fosuser stuff
+  fosuser_registration: true
+  fosuser_confirmation: true
 
-    fos_oauth_server_access_token_lifetime: 3600
-    fos_oauth_server_refresh_token_lifetime: 1209600
+  fos_oauth_server_access_token_lifetime: 3600
+  fos_oauth_server_refresh_token_lifetime: 1209600
 
-    from_email: ${FROM_EMAIL}
+  from_email: ${FROM_EMAIL}
 
-    rss_limit: 50
+  rss_limit: 50
 
-    # RabbitMQ processing
-    rabbitmq_host: localhost
-    rabbitmq_port: 5672
-    rabbitmq_user: guest
-    rabbitmq_password: guest
-    rabbitmq_prefetch_count: 10
+  # RabbitMQ processing
+  rabbitmq_host: localhost
+  rabbitmq_port: 5672
+  rabbitmq_user: guest
+  rabbitmq_password: guest
+  rabbitmq_prefetch_count: 10
 
-    # Redis processing
-    redis_scheme: tcp
-    redis_host: localhost
-    redis_port: 6379
-    redis_path: null
-    redis_password: null
+  # Redis processing
+  redis_scheme: tcp
+  redis_host: localhost
+  redis_port: 6379
+  redis_path: null
+  redis_password: null
 
-    # Sentry
-    sentry_dsn: null
+  # Sentry
+  sentry_dsn: null
