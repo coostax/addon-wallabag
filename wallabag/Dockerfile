@@ -8,18 +8,15 @@ ENV \
     DEBIAN_FRONTEND="noninteractive" \
     CURL_CA_BUNDLE="/etc/ssl/certs/ca-certificates.crt" \
     S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
-    S6_CMD_WAIT_FOR_SERVICES=1 
+    S6_CMD_WAIT_FOR_SERVICES=1 \
+    BASHIO_VERSION=0.14.3 \
+    TEMPIO_VERSION=2021.09.0 \
+    S6_OVERLAY_VERSION=2.1.0.2 \
+    NODE_VERSION="14" \
+    WALLABAG_VERSION=2.4.3
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-# Version
-ARG \
-    BASHIO_VERSION \
-    TEMPIO_VERSION \
-    S6_OVERLAY_VERSION \
-    NODE_VERSION \
-    WALLABAG_VERSION
 
 # Base system
 WORKDIR /usr/src
@@ -111,5 +108,34 @@ WORKDIR /
 
 # Copy root filesystem
 COPY rootfs /
+
+# Build arguments
+ARG \
+    BUILD_ARCH \
+    BUILD_DATE \
+    BUILD_DESCRIPTION \
+    BUILD_NAME \
+    BUILD_REF \
+    BUILD_REPOSITORY \
+    BUILD_VERSION
+
+# Labels
+LABEL \
+    io.hass.name="${BUILD_NAME}" \
+    io.hass.description="${BUILD_DESCRIPTION}" \
+    io.hass.arch="${BUILD_ARCH}" \
+    io.hass.type="addon" \
+    io.hass.version=${BUILD_VERSION} \
+    maintainer="Paulo Costa <coostax@duck.com>" \
+    org.opencontainers.image.title="${BUILD_NAME}" \
+    org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
+    org.opencontainers.image.authors="Paulo Costa <coostax@duck.com>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.vendor="Home Assistant Add-ons" \
+    org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
+    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
+    org.opencontainers.image.created=${BUILD_DATE} \
+    org.opencontainers.image.revision=${BUILD_REF} \
+    org.opencontainers.image.version=${BUILD_VERSION}
 
 ENTRYPOINT ["/init"]
