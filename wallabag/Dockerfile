@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-
+# hadolint ignore=DL3006
 FROM $BUILD_FROM
 
 # Default ENV
@@ -26,9 +26,10 @@ WORKDIR /usr/src
 ARG BUILD_ARCH
 
 # Setup base
+# hadolint ignore=DL3008
 RUN \
     set -x && \
-    apt update && apt install -y --no-install-recommends \
+    apt-get update && apt-get install -y --no-install-recommends \
       ca-certificates \
       curl \
       gnupg \
@@ -72,8 +73,8 @@ RUN \
     #Install and config PHP 8.0
     && curl -J -L -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list \
-    && apt update \
-    && apt install  -y --no-install-recommends \
+    && apt-get update \
+    && apt-get install  -y --no-install-recommends \
         php8.0-bcmath \
         php8.0-cli \
         php8.0-curl \
@@ -96,11 +97,13 @@ RUN \
         imagemagick \
         nodejs \
     # remove unecessary packages
-    && apt purge -y --auto-remove \
+    && apt-get purge -y --auto-remove \
         software-properties-common \
-    && apt clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 # Copy Wallabag sources
 WORKDIR /var/www
+# hadolint ignore=SC2086
 RUN curl -L -o wb_latest.tgz https://static.wallabag.org/releases/wallabag-release-${WALLABAG_VERSION}.tar.gz && tar xvf wb_latest.tgz \
     && rm -f wb_latest.tgz && mv wallabag-${WALLABAG_VERSION} wallabag
 
