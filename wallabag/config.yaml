@@ -9,7 +9,6 @@ services:
   - mysql:want
 arch:
   - armv7
-  - armhf
   - aarch64
   - amd64
   - i386
