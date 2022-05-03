@@ -41,4 +41,4 @@ schema:
   twofactor_auth: bool
   twofactor_sender: str?
 init: false
-# image: "ghcr.io/coostax/{arch}-addon-wallabox"
+#image: "ghcr.io/coostax/wallabox/{arch}"
