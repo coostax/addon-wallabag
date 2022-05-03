@@ -12,7 +12,7 @@ ENV \
     BASHIO_VERSION=0.14.3 \
     TEMPIO_VERSION=2021.09.0 \
     S6_OVERLAY_VERSION=2.1.0.2 \
-    NODE_VERSION="14" \
+    NODE_VERSION=16 \
     WALLABAG_VERSION=2.4.3
 
 # Set shell
@@ -68,28 +68,28 @@ RUN \
     && echo "deb https://deb.nodesource.com/node_${NODE_VERSION}.x $(lsb_release -cs) main" > /etc/apt/sources.list.d/nodesource.list \
     #Install and config PHP 8.0
     && curl -J -L -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
-    && echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list \
+    && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \
     && apt-get install  -y --no-install-recommends \
-        php8.0-bcmath \
-        php8.0-cli \
-        php8.0-curl \
-        php8.0-fpm \
-        php8.0-gd \
-        php8.0-intl \
-        php8.0-mbstring \
-        php8.0-opcache \
-        php8.0-gettext \
-        php8.0-iconv \
-        php8.0-mysql \
-        php8.0-sockets \
-        php8.0-tidy \
-        php8.0-zip \
-        php8.0-redis \
-        php8.0-imagick \
-        php8.0-xdebug \
-        php8.0-xml \
-        php8.0 \
+        php8.1-bcmath \
+        php8.1-cli \
+        php8.1-curl \
+        php8.1-fpm \
+        php8.1-gd \
+        php8.1-intl \
+        php8.1-mbstring \
+        php8.1-opcache \
+        php8.1-gettext \
+        php8.1-iconv \
+        php8.1-mysql \
+        php8.1-sockets \
+        php8.1-tidy \
+        php8.1-zip \
+        php8.1-redis \
+        php8.1-imagick \
+        php8.1-xdebug \
+        php8.1-xml \
+        php8.1 \
         imagemagick \
         nodejs \
     # remove unecessary packages

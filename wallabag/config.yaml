@@ -8,6 +8,7 @@ webui: "[PROTO:ssl]://[HOST]:[PORT:80]"
 services:
   - mysql:want
 arch:
+  - armv7
   - armhf
   - aarch64
   - amd64
