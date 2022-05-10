@@ -66,7 +66,7 @@ RUN \
     # Prepare install of nodeJS
     && curl 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key' | apt-key add - \
     && echo "deb https://deb.nodesource.com/node_${NODE_VERSION}.x $(lsb_release -cs) main" > /etc/apt/sources.list.d/nodesource.list \
-    #Install and config PHP 8.0
+    #Install and config PHP 8.1
     && curl -J -L -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \

@@ -114,7 +114,7 @@ if bashio::config.has_value 'tokens_secret';then
     TOKEN_SECRET=$(bashio::config "tokens_secret")
 else
     #TODO auto generate secret
-    TOKEN_SECRET="SOME_RANDOM_STRING"
+    TOKEN_SECRET="dc91c5e2255f441196c8c2bfa"
 fi
 
 if bashio::config.has_value 'locale';then
