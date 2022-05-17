@@ -20,6 +20,8 @@ export APP_LOCALE=en
 export TWOFACTOR_AUTH=false
 export TWOFACTOR_SENDER='no-reply@wallabag.org'
 export FROM_EMAIL='no-reply@wallabag.org'
+export ANYONE_CAN_REGISTER=false
+export FOS_USER_CONFIRMATION=true
 
 #Create assets folder
 if ! bashio::fs.directory_exists "/data/wallabag/assets"; then
@@ -136,6 +138,15 @@ fi
 
 if bashio::config.has_value 'twofactor_sender';then
     TWOFACTOR_SENDER=$(bashio::config "twofactor_sender")
+fi
+
+# User registration options
+if bashio::config.has_value 'anyone_can_register';then
+    ANYONE_CAN_REGISTER=$(bashio::config "anyone_can_register")
+fi
+
+if bashio::config.has_value 'fosuser_confirmation';then
+    FOS_USER_CONFIRMATION=$(bashio::config "fosuser_confirmation")
 fi
 
 bashio::log.info "Setting up parameters.yml"

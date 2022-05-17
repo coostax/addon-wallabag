@@ -31,9 +31,9 @@ parameters:
   twofactor_auth: $TWOFACTOR_AUTH
   twofactor_sender: ${TWOFACTOR_SENDER}
 
-  # fosuser stuff
-  fosuser_registration: true
-  fosuser_confirmation: true
+  # fosuser stuff TODO: set this to default false and get as param
+  fosuser_registration: $ANYONE_CAN_REGISTER
+  fosuser_confirmation: $FOS_USER_CONFIRMATION
 
   fos_oauth_server_access_token_lifetime: 3600
   fos_oauth_server_refresh_token_lifetime: 1209600
