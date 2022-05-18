@@ -21,7 +21,7 @@ export TWOFACTOR_AUTH=false
 export TWOFACTOR_SENDER='no-reply@wallabag.org'
 export FROM_EMAIL='no-reply@wallabag.org'
 export ANYONE_CAN_REGISTER=false
-export FOS_USER_CONFIRMATION=true
+export FOS_USER_CONFIRMATION=false
 
 #Create assets folder
 if ! bashio::fs.directory_exists "/data/wallabag/assets"; then

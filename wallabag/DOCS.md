@@ -131,7 +131,8 @@ Enable or disable two factor authentication. For more information check [Wallaba
 
 ### Option: `twofactor_sender`
 
-Sender email address to receive the two factor code. For more information check [Wallabag-user-docs]
+Sender email address to receive the two factor code.
+For more information check [Wallabag-user-docs]
 
 ### Option: `anyone_can_register`
 
@@ -168,8 +169,8 @@ When SSL is turned on it setting requires setting `app_url` with the https addre
 so that the page loads correctly. Failing to do this will make the site unable to
 load css and javascripts correctly.
 
-The same is true when setting a reverse proxy. `app_url` must be set with the the https
-address of the reverse proxy.
+The same is true when setting a reverse proxy. `app_url` must be set with
+the https address of the reverse proxy.
 
 ## Changelog & Releases
 
