@@ -11,7 +11,7 @@ Further information can be found at [Wallabag].
 To install this add-on do the following steps:
 
 1. On supervisor -> add-on go to the options and select Repositories.
-1. Add the URL for this repo (<https://github.com/coostax/addon-wallabag.git>)
+1. Add the URL for my addons repo (<https://github.com/coostax/ha-addons.git>)
    to the add text box and click on ADD.
 1. Search for the "Wallabag" add-on in the add-on store and install it.
 1. Start the "Wallabag" add-on.
@@ -29,9 +29,19 @@ ssl: false
 certfile: fullchain.pem
 keyfile: privkey.pem
 twofactor_auth: true
+anyone_can_register: false
 ```
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
+
+Upon starting the add-on creates a default user with the following credentials:
+
+```yaml
+username: wallabag
+password: wallabag
+```
+
+It is advised that as soon as you start the add-on you should change this user password.
 
 ### Option: `log_level`
 
@@ -55,6 +65,9 @@ you are troubleshooting.
 
 Enables/Disables SSL (HTTPS) on the web interface of Wallabag
 Panel. Set it `true` to enable it, `false` otherwise.
+
+**Note**: If set to true you need to configure the `app_url` option
+to point to the https address so that the page loads correctly
 
 ### Option: `certfile`
 
@@ -93,11 +106,15 @@ server is listening on.
 ### Option: `token_secret`
 
 A secret key that's used to generate certain security-related tokens.
-You should set this to prevent using the default
+This is a string that should be unique to your application and it's
+commonly used to add more entropy to security related operations.
 
 ### Option: `app_url`
 
-Set APP_URL to the URL Wallabag will be on. For example `https://wallabag.example.com`.
+Full URL of your wallabag instance (without the trailing slash).
+For example `https://wallabag.example.com`.
+If you enabled ssl you are going to need to set up this option with the https address
+for the page to load correctly.
 
 ### Option: `app_name`
 
@@ -105,7 +122,8 @@ The name that will appear on the main HTML page. For example `Your wallabag inst
 
 ### Option: `locale`
 
-The locale to set for Wallabag. Rigth now only tested with `en`
+Default language of your wallabag instance (like en, fr, es, etc.).
+Rigth now only has been tested with `en`
 
 ### Option: `twofactor_auth`
 
@@ -113,7 +131,32 @@ Enable or disable two factor authentication. For more information check [Wallaba
 
 ### Option: `twofactor_sender`
 
-Sender email address for two factor authentication. For more information check [Wallabag-user-docs]
+Sender email address to receive the two factor code.
+For more information check [Wallabag-user-docs]
+
+### Option: `anyone_can_register`
+
+Set to _true_ to enable public registration. Default is false
+
+**Note**: _Setting this to true will allow anyone with access
+to your site to register an account_
+
+### Option: `fosuser_confirmation`
+
+Set to _true_ to send a confirmation by email for each registration.
+Default is _false_
+
+## Registering and managing users
+
+When the option `anyone_can_register` is set to _false_ the front page will not
+display a `Register` button. The only way to create new users is loggin in with
+an admin user and adding a new one under My Account -> users.
+The default wallabag user has admin priviledges.
+
+When the option `anyone_can_register` is set to _true_ the front page will
+display a `Register` button. You can use this button to register new users.
+You can have some control on the registrations by setting `fosuser_confirmation`
+to _true_ and receive confimation requests by email each time a new user registers.
 
 ## Database usage
 
@@ -124,7 +167,12 @@ that there is no easy upgrade path between the two options.
 
 ## Known issues and limitations
 
-TBD
+When SSL is turned on it setting requires setting `app_url` with the https address
+so that the page loads correctly. Failing to do this will make the site unable to
+load css and javascripts correctly.
+
+The same is true when setting a reverse proxy. `app_url` must be set with
+the https address of the reverse proxy.
 
 ## Changelog & Releases
 
