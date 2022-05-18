@@ -136,13 +136,15 @@ For more information check [Wallabag-user-docs]
 
 ### Option: `anyone_can_register`
 
-Set to true to enable public registration. Default is false
+Set to _true_ to enable public registration. Default is false
 
-**Note**: _Setting this to true will allow anyone with access to your site to register an account_
+**Note**: _Setting this to true will allow anyone with access
+to your site to register an account_
 
 ### Option: `fosuser_confirmation`
 
-Set to true to send a confirmation by email for each registration. Default is true
+Set to _true_ to send a confirmation by email for each registration.
+Default is _false_
 
 ## Registering and managing users
 
