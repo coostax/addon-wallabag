@@ -7,7 +7,7 @@ ENV \
     NODE_VERSION=16 \
     WALLABAG_VERSION=2.4.3
 # Setup base
-# hadolint ignore=DL3008
+# hadolint ignore=DL3008,DL4006
 RUN \
     set -x && \
     apt-get update && apt-get install -y --no-install-recommends \
