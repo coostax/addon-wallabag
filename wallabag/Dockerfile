@@ -1,11 +1,11 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:5.3.1
 # hadolint ignore=DL3006
 FROM $BUILD_FROM
 
 # Default ENV
 ENV \
     NODE_VERSION=16 \
-    WALLABAG_VERSION=2.4.3
+    WALLABAG_VERSION=2.5.0
 # Setup base
 # hadolint ignore=DL3008,DL4006
 RUN \
