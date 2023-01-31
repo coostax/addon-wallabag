@@ -5,7 +5,7 @@ FROM $BUILD_FROM
 # Default ENV
 ENV \
     NODE_VERSION=16 \
-    WALLABAG_VERSION=2.5.1
+    WALLABAG_VERSION=2.5.2
 # Setup base
 # hadolint ignore=DL3008,DL4006
 RUN \
