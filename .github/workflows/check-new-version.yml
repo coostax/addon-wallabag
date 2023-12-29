@@ -1,0 +1,47 @@
+---
+name: Check Wallabag Version
+
+# yamllint disable-line rule:truthy
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at 00:00
+  workflow_dispatch:
+
+jobs:
+  check_updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for new version and update Dockerfile
+        id: check_version
+        run: |
+          n_vers=$(curl --silent "https://api.github.com/repos/wallabag/wallabag/releases/latest" | jq -r .tag_name)
+          echo "new_version=$n_vers" >> $GITHUB_OUTPUT
+          echo "version is $n_vers"
+
+      - name: Update Dockerfile
+        run: |
+          grep "ENV WALLABAG_VERSION=" wallabag/Dockerfile | cut -d= -f2
+          sed -i "s/ENV WALLABAG_VERSION=.*/ENV WALLABAG_VERSION=${{ steps.check_version.outputs.new_version }}/" wallabag/Dockerfile
+
+      - name: Check if Dockerfile has changed
+        uses: tj-actions/verify-changed-files@v17
+        id: verify_changed_files
+        with:
+          files: |
+            wallabag/Dockerfile
+
+      - name: Create PR
+        if: steps.verify_changed_files.outputs.files_changed == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.DISPATCH_TOKEN }}
+          commit-message: "update wallabag to version ${{ steps.check_version.outputs.new_version }}"
+          branch: "new_wallabag_version_${{ steps.check_version.outputs.new_version }}"
+          delete-branch: true
+          base: "main"
+          title: "Update Wallabag version"
+          body: "Update Wallabag to version ${{ steps.check_version.outputs.new_version }}"
+          labels: "enhancement"
