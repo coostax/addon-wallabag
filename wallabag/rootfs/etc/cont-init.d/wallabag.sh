@@ -161,6 +161,23 @@ else
       "Parameters file not found in /opt/wallabag/config/parameters.yml"
 fi
 
+bashio::log.info "checking if version updates are required"
+#run 2.5 -> 2.6 update
+mysql \
+    -u "${DATABASE_USER}" -p"${DATABASE_PASSWORD}" \
+    -h "${DATABASE_HOST}" -P "${DATABASE_PORT}" \
+    -e "SELECT COUNT(*) INTO @col_count
+FROM information_schema.columns
+WHERE table_schema = \`${DATABASE_NAME}\`
+AND table_name = 'wallabag_config'
+AND column_name = 'theme';
+
+IF @col_count > 0 THEN
+  ALTER TABLE wallabag_config DROP COLUMN theme;
+  ALTER TABLE wallabag_user CHANGE backupCodes backupCodes JSON DEFAULT NULL;
+  ALTER TABLE wallabag_config ADD display_thumbnails INT(11) NOT NULL DEFAULT 1;
+END IF;"
+
 bashio::log.info "Runnning Wallabag install script"
 
 php /var/www/wallabag/bin/console wallabag:install --env=prod --no-interaction
