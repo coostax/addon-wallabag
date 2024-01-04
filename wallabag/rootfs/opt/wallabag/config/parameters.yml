@@ -14,13 +14,7 @@ parameters:
   domain_name: ${DOMAIN_NAME}
   server_name: ${SERVER_NAME}
 
-  mailer_transport: smtp
-  mailer_user: null
-  mailer_password: null
-  mailer_host: 127.0.0.1
-  mailer_port: 25
-  mailer_encryption: null
-  mailer_auth_mode: null
+  mailer_dsn: smtp://127.0.0.1
 
   locale: ${APP_LOCALE}
 

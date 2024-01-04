@@ -4,8 +4,8 @@ FROM $BUILD_FROM
 
 # Default ENV
 ENV \
-    NODE_VERSION=16 \
-    WALLABAG_VERSION=2.5.2
+    NODE_VERSION=18 \
+    WALLABAG_VERSION=2.6.6
 # Setup base
 # hadolint ignore=DL3008,DL4006
 RUN \
@@ -22,30 +22,30 @@ RUN \
     # Prepare install of nodeJS
     && curl 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key' | apt-key add - \
     && echo "deb https://deb.nodesource.com/node_${NODE_VERSION}.x $(lsb_release -cs) main" > /etc/apt/sources.list.d/nodesource.list \
-    #Install and config PHP 8.1
+    #Install and config PHP 8.2
     && curl -J -L -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \
     && apt-get install  -y --no-install-recommends \
-        php8.1-bcmath \
-        php8.1-cli \
-        php8.1-curl \
-        php8.1-fpm \
-        php8.1-gd \
-        php8.1-intl \
-        php8.1-mbstring \
-        php8.1-opcache \
-        php8.1-gettext \
-        php8.1-iconv \
-        php8.1-mysql \
-        php8.1-sockets \
-        php8.1-tidy \
-        php8.1-zip \
-        php8.1-redis \
-        php8.1-imagick \
-        php8.1-xdebug \
-        php8.1-xml \
-        php8.1 \
+        php8.2-bcmath \
+        php8.2-cli \
+        php8.2-curl \
+        php8.2-fpm \
+        php8.2-gd \
+        php8.2-intl \
+        php8.2-mbstring \
+        php8.2-opcache \
+        php8.2-gettext \
+        php8.2-iconv \
+        php8.2-mysql \
+        php8.2-sockets \
+        php8.2-tidy \
+        php8.2-zip \
+        php8.2-redis \
+        php8.2-imagick \
+        php8.2-xdebug \
+        php8.2-xml \
+        php8.2 \
         imagemagick \
         nodejs \
     # remove unecessary packages
@@ -56,7 +56,8 @@ RUN \
 # Copy Wallabag sources
 WORKDIR /var/www
 # hadolint ignore=SC2086
-RUN curl -L -o wb_latest.tgz https://static.wallabag.org/releases/wallabag-release-${WALLABAG_VERSION}.tar.gz && tar xvf wb_latest.tgz \
+RUN curl -L -o wb_latest.tgz https://github.com/wallabag/wallabag/releases/download/${WALLABAG_VERSION}/wallabag-${WALLABAG_VERSION}.tar.gz \
+    && tar xvf wb_latest.tgz \
     && rm -f wb_latest.tgz && mv wallabag-${WALLABAG_VERSION} wallabag
 
 # S6-Overlay

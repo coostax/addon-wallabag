@@ -165,6 +165,10 @@ bashio::log.info "Runnning Wallabag install script"
 
 php /var/www/wallabag/bin/console wallabag:install --env=prod --no-interaction
 
+bashio::log.info "checking if version updates are required"
+php /var/www/wallabag/bin/console doctrine:migrations:migrate --no-interaction --env=prod
+php /var/www/wallabag/bin/console cache:clear --env=prod
+
 bashio::log.info "correcting owner settings on app folders"
 chown -R www-data:www-data /var/www/wallabag/app
 chown -R www-data:www-data /var/www/wallabag/var
